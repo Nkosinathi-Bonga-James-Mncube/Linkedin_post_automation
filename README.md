@@ -20,12 +20,29 @@
  - [How it works](#how-it-works)
  - [Installation](#installation)
  - [How to use github action](#how-to-use-github-actions)
+ - [Troubleshoot](#troubleshoot)
 
  # How it works
  (using it github actions)
+ - An email is send using `send email` action if no new repo repro has added for the month.
  ## What is Github Actions?
  - 
  ## What is Yaml?
  - 
  # Installation
- # How to use github action
+ ### Enter email details
+ - To enter secrets details for email click on settings
+ <p>
+<img width= 500 src=https://user-images.githubusercontent.com/50704452/104120644-07933680-5341-11eb-8072-a5f0faa38a42.png>
+</p>
+
+ - In the left sidebar, click Secrets.Add the `MAIL_USERNAME`, `MAIL_PASSWORD` , `SEND_TO`,`SEND_FROM` values
+
+<p>
+<img width= 500 src=https://user-images.githubusercontent.com/50704452/104120647-1974d980-5341-11eb-9a63-1b2bfb32f7bb.png>
+</p>
+
+ # How to use github actions
+ # Troubleshoot
+  - You experience any issue with sending a email try:
+  https://support.google.com/mail/answer/7126229?visit_id=637458707776330290-1687276339&rd=2#cantsignin

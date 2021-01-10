@@ -21,10 +21,14 @@ jobs:
             username: ${{secrets.MAIL_USERNAME}}
             password: ${{secrets.MAIL_PASSWORD}}
             subject: Github Action job results
-            body: Build job ${{github.repository}} completed successfully
+            body: Build job ${{github.repository}} completed successfully\n
             to: ${{secrets.SEND_TO}}
             from: ${{secrets.SEND_FROM}}
             content_type: text/html
             convert_markdown: true
+      - name: Use artifacts
+        uses: actions/artifact@v2
+      - run: echo hello world! > test1.txt 
+      - name: Run script
       - run: |
           python linkedin.py
