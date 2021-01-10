@@ -15,12 +15,6 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Use artifacts
-        uses: actions/upload-artifact@v2
-      - run: |
-            mkdir -p ./record
-            echo hello world! > ./record/test1.txt 
-
       - name: Send email
         uses: dawidd6/action-send-mail@v2.4.0
         with:
