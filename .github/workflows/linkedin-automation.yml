@@ -13,6 +13,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
+
+      - name: Use artifacts
+        uses: actions/artifact@v2
+      - run: echo hello world! > test1.txt 
+      
       - name: Send email
         uses: dawidd6/action-send-mail@v2.4.0
         with:
@@ -21,14 +26,10 @@ jobs:
             username: ${{secrets.MAIL_USERNAME}}
             password: ${{secrets.MAIL_PASSWORD}}
             subject: Github Action job results
-            body: Build job ${{github.repository}} completed successfully\n
+            body: Build job ${{github.repository}} completed successfully
             to: ${{secrets.SEND_TO}}
             from: ${{secrets.SEND_FROM}}
             content_type: text/html
             convert_markdown: true
-      - name: Use artifacts
-        uses: actions/artifact@v2
-      - run: echo hello world! > test1.txt 
-      - name: Run script
       - run: |
           python linkedin.py
