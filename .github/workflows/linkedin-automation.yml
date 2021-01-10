@@ -4,7 +4,7 @@ on: push
   #  - cron: '*/2 * * * *'
 jobs:
   build:
-    name: Print Hello World
+    name: Run python script + send email
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
