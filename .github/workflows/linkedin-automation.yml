@@ -22,7 +22,6 @@ jobs:
             password: ${{ secrets.MAIL_PASSWORD }}
             subject: Github Action job results
             body: Build job ${{ git.repository }} completed successfully
-            body: file://README.md
             to: ${{ secrets.SEND_TO }}
             from: ${{ secrets.SEND_FROM }}
             content_type: text/html
