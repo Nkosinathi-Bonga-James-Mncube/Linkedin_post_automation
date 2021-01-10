@@ -1,0 +1,17 @@
+name: LinkedIn post automation
+on:
+  schedule:
+    - cron: '*/2 * * * *'
+jobs:
+  build:
+    name: Print Hello World
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - run: |
+          linkedin_script.py
