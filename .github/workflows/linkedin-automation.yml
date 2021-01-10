@@ -1,5 +1,5 @@
 name: LinkedIn post automation
-on: [pull_request]
+on: push
   #schedule:
   #  - cron: '*/2 * * * *'
 jobs:
