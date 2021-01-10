@@ -26,7 +26,10 @@
  (using it github actions)
  - An email is send using `send email` action if no new repo repro has added for the month.
  ## What is Github Actions?
- - 
+ - Explain artifacts
+ - Explain checkout
+ - Explain jobs
+ - Explain
  ## What is Yaml?
  - 
  # Installation

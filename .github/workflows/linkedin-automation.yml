@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -16,7 +17,9 @@ jobs:
 
       - name: Use artifacts
         uses: actions/upload-artifact@v2
-      - run: echo hello world! > ./test1.txt 
+      - run: |
+            mkdir -p ./record
+            echo hello world! > ./record/test1.txt 
 
       - name: Send email
         uses: dawidd6/action-send-mail@v2.4.0
