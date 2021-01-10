@@ -16,7 +16,7 @@ jobs:
 
       - name: Use artifacts
         uses: actions/upload-artifact@v2
-      - run: echo hello world! > test1.txt 
+      - run: echo hello world! > ./test1.txt 
 
       - name: Send email
         uses: dawidd6/action-send-mail@v2.4.0
