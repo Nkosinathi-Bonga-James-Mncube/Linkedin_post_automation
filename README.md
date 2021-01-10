@@ -7,9 +7,9 @@
  - Built a automated task to inform my network what I'm working on LinkedIn.
  - Posts a automated report each month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions).
  - Additional functionality:
-     - [] Keeps track of already posted project in .txt file
-     - [] Emails me if I haven't at least created one project for the month
-     - [] Attached record of projects for the year
+     - [ ] Keeps track of already posted project in .txt file
+     - [ ] Emails me if I haven't at least created one project for the month
+     - [ ] Attached record of projects for the year
 
  
 ----
@@ -30,6 +30,13 @@
  - Explain checkout
  - Explain jobs
  - Explain
+ - Research :
+    - https://github.com/marketplace/actions/github-api-request
+    - https://github.com/actions/checkout
+    - https://waylonwalker.com/four-github-actions-website
+    - https://github.com/actions/download-artifact
+    - https://github.com/nektos/act 
+
  ## What is Yaml?
  - 
  # Installation
