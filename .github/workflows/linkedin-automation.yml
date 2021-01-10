@@ -18,17 +18,16 @@ jobs:
         with:
             server_address : smtp.gmail.com
             server_port: 465
-            username: ${{ secrets.MAIL_USERNAME }}
-            password: ${{ secrets.MAIL_PASSWORD }}
+            username: ${{secrets.MAIL_USERNAME}}
+            password: ${{secrets.MAIL_PASSWORD}}
             subject: Github Action job results
-            body: Build job ${{ github.repository }} completed successfully
-            to: ${{ secrets.SEND_TO }}
-            from: ${{ secrets.SEND_FROM }}
+            body: Build job ${{github.repository}} completed successfully
+            to: ${{secrets.SEND_TO}}
+            from: ${{secrets.SEND_FROM}}
             content_type: text/html
             convert_markdown: true
             attachments: false
             cc: false
             bcc: false
-
       - run: |
           python linkedin.py
