@@ -26,8 +26,5 @@ jobs:
             from: ${{secrets.SEND_FROM}}
             content_type: text/html
             convert_markdown: true
-            attachments: false
-            cc: false
-            bcc: false
       - run: |
           python linkedin.py
