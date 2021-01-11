@@ -13,8 +13,14 @@
 
  
 ----
+# Packages
+- Python-decouple: https://pypi.org/project/python-decouple/
+- Pandas: https://pypi.org/project/pandas/
+- Request: https://pypi.org/project/requests/
+
 # Actions used
  - Send email : https://github.com/marketplace/actions/send-email
+ - GitHub Script: https://github.com/marketplace/actions/github-script
 ----
 # Table of contents
  - [How it works](#how-it-works)
@@ -54,5 +60,5 @@
 
  # How to use github actions
  # Troubleshoot
-  - You experience any issue with sending a email try:
-  https://support.google.com/mail/answer/7126229?visit_id=637458707776330290-1687276339&rd=2#cantsignin
+  > You experience any issue with sending a email try:
+  - https://support.google.com/mail/answer/7126229?visit_id=637458707776330290-1687276339&rd=2#cantsignin
