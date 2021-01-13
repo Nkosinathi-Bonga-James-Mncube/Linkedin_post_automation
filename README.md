@@ -26,6 +26,7 @@
  - [How it works](#how-it-works)
  - [Installation](#installation)
  - [How to use github action](#how-to-use-github-actions)
+ - [Resources](#resources)
  - [Troubleshoot](#troubleshoot)
 
  # How it works
@@ -59,6 +60,9 @@
 </p>
 
  # How to use github actions
+ # Resources
+ Ascii pattern for email : http://patorjk.com/software/taag/#p=testall&f=Cards&t=Failed%20!
+
  # Troubleshoot
   > You experience any issue with sending a email try:
   - https://support.google.com/mail/answer/7126229?visit_id=637458707776330290-1687276339&rd=2#cantsignin
