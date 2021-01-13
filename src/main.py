@@ -36,8 +36,8 @@ def github_request():
     df.sort_values(by=['Created_at'],inplace=True,ascending=False)
     df['Created_at']= pd.to_datetime(df['Created_at']) # convert to Date.time.object
     # print(df) # debug
-    # x=datetime.datetime.now()+ pd.DateOffset(months=-1) # check previous month (i.e -1)
-    x=datetime.date.fromisoformat('2020-04-24')+ pd.DateOffset(months=-1) # debug
+    x=datetime.datetime.now()+ pd.DateOffset(months=-1) # check previous month (i.e -1)
+    # x=datetime.date.fromisoformat('2020-04-24')+ pd.DateOffset(months=-1) # debug
     each_repo = df.loc[df['Created_at'].dt.month==x.month].values # find all dates with the previous month in series Created_at
     print(f'------------------------------------------\nLatest project last month in {x.strftime("%b")}-{x.year} \n------------------------------------------')
     print(f'You have a total of {each_repo.shape[0]} new Projects:\n') # return number of total turples with is total number of projects
