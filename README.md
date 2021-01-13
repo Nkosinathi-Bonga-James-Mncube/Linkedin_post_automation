@@ -52,7 +52,7 @@
 <img width= 500 src=https://user-images.githubusercontent.com/50704452/104120644-07933680-5341-11eb-8072-a5f0faa38a42.png>
 </p>
 
- - In the left sidebar, click Secrets.Add the `MAIL_USERNAME`, `MAIL_PASSWORD` , `SEND_TO`,`SEND_FROM` values
+ - In the left sidebar, click Secrets.Add the `MAIL_USERNAME`(enter email address), `MAIL_PASSWORD`(enter password) , `SEND_TO`(recieving email address),`SEND_FROM`(different email address it sending from) values
 
 <p>
 <img width= 500 src=https://user-images.githubusercontent.com/50704452/104120647-1974d980-5341-11eb-9a63-1b2bfb32f7bb.png>
