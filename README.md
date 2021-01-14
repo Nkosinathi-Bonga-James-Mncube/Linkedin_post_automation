@@ -50,6 +50,11 @@
 
  
  # How to use github actions
+ ### Create a Personal access token
+ - https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token
+ ### Create a Linkedin token (Clicked on 'Create a app')
+ > Please note: It's advise to use your own personal Linkedin profile as there are restrictions on newly created accounts.Please refer to the Troubleshoot section.  
+ - https://www.linkedin.com/developers/
   ### Enter email details
  - To enter secrets details for email click on settings
  <p>
