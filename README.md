@@ -66,3 +66,5 @@
  # Troubleshoot
   > You experience any issue with sending a email try:
   - https://support.google.com/mail/answer/7126229?visit_id=637458707776330290-1687276339&rd=2#cantsignin
+  > If you are having trouble creating a company page to get a access token please read
+  - https://technoogies.com/how-to-facts-about-linkedin-an-error-has-occurred-please-try-again-later/
