@@ -47,27 +47,44 @@
  ## What is Yaml?
  - 
  # Installation
- ### Enter email details
+
+ 
+ # How to use github actions
+ ### Create a Github Personal access token
+ - https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token
+ ### Create a Linkedin token (Clicked on 'Create a app')
+ > Please note: It's advise to use your own personal Linkedin profile as there are restrictions on newly created accounts.Please refer to the Troubleshoot section.  
+ - https://www.linkedin.com/developers/
+  ### Enter email details
  - To enter secrets details for email click on settings
  <p>
 <img width= 500 src=https://user-images.githubusercontent.com/50704452/104120644-07933680-5341-11eb-8072-a5f0faa38a42.png>
 </p>
 
+<<<<<<< HEAD
    > NB : If you plan to use your gmail account please use a app password instead of default password. To create app password :
 
     - https://support.google.com/accounts/answer/185833?hl=en
 
 
  - In the left sidebar, click Secrets.Add the `MAIL_USERNAME`(enter email address), `MAIL_PASSWORD`(enter password) , `SEND_TO`(recieving email address),`SEND_FROM`(different email address it sending from) values
+=======
+ - In the left sidebar, click Secrets.Add the following secrets :
+  - `MAIL_USERNAME`(enter email address)
+  - `MAIL_PASSWORD`(enter password)
+  - `SEND_TO`(recieving email address)
+  - `SEND_FROM`(different email address it sending from)
+>>>>>>> 3f0df09e5924ce2a4077a8423d49f0b3c4cf75ee
 
 <p>
 <img width= 500 src=https://user-images.githubusercontent.com/50704452/104120647-1974d980-5341-11eb-9a63-1b2bfb32f7bb.png>
 </p>
 
- # How to use github actions
  # Resources
  Ascii pattern for email : http://patorjk.com/software/taag/#p=testall&f=Cards&t=Failed%20!
 
  # Troubleshoot
   > You experience any issue with sending a email try:
   - https://support.google.com/mail/answer/7126229?visit_id=637458707776330290-1687276339&rd=2#cantsignin
+  > If you are having trouble creating a company page to get a access token please read
+  - https://technoogies.com/how-to-facts-about-linkedin-an-error-has-occurred-please-try-again-later/
