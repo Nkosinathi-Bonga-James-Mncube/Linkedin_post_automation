@@ -93,22 +93,7 @@ to be sent in email to myself.
 
  
 - `linkedin_request()`
- ## What is Github Actions?
- - Explain artifacts
- - Explain checkout
- - Explain jobs
- - Explain
- - Research :
-    - https://github.com/marketplace/actions/github-api-request
-    - https://github.com/actions/checkout
-    - https://waylonwalker.com/four-github-actions-website
-    - https://github.com/actions/download-artifact
-    - https://github.com/nektos/act 
 
- ## What is Yaml?
- - 
-
- 
  # Installation
  ### Create a Github Personal access token
  - https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token
