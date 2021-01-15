@@ -6,7 +6,7 @@
 </p>
 
  - Built a automated task to inform my network what I'm working on LinkedIn.
- - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) of my finished public projects.The report will display compeleted project for the previous month(e.g if todays the 1 FEB 2021 it will post all public repos from JAN 2021).
+ - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) of my finished public projects.The report will display compeleted project for the previous month(e.g If todays the 1 FEB 2021 it will post all public repos from JAN 2021).
  - The report contains the following:
       - Name of project
       - Description of project
@@ -32,8 +32,7 @@
  - [Troubleshoot](#troubleshoot)
 
  # How it works
-- (using it github actions)
-- The `github_request()` function makes a GET request from Github API for the details of my repository and returns its response object
+- The `github_request()` function makes a GET request from Github API for the details of my repository and returns its response object.
  ```python
  def github_request():
    headers = {'Authorization': 'token ' + config('api')}
@@ -62,16 +61,7 @@ def create_dataframe(response):
 ```
 ## On failure (i.e No new repositories have been created for the month)
 - If `each_repo.size` is 0 that means no public repository have been created for that specific month and `fail_msg()` function is called.
-```python
-def fail_msg(df,x):
-```
-- `fail_msg()` function is tasked to:
-- Accept dataframe `df` and previous month `x` as parameters.
-- Create a file named `fail.txt` with mode `w` for opening/creating a file aswell as writing in it.
-```python
-   f=open("fail.txt","w")
-```
-- Creats a numpy array of the current years repositories instead of month for `each_repo`
+- Creates a numpy array of the current years repositories instead of month for `each_repo`
 ```python
  each_repo = df.loc[df['Created_at'].dt.year==y.year].values
 ```
@@ -85,14 +75,6 @@ function is called.
 ```python
 def display_repos(df):
 ```
-- `display_repos()` function is tasked to:
-- Accept dataframe `df` as a parameter.
-- Create a file named `report.txt` with mode `w` for opening/creating a file aswell as writing in it.
-```python
-   f=open("report.txt","w")
-```
- - An email is send using `send email` action if no new repo repro has added for the month.
-
 - Afterwards all infomation(Personal message,Current months repos etc.) is written into `report.txt` to be used by `send_email()`
 to be sent in email to myself.
 <img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768706-c2269d00-5776-11eb-8bb9-a4481be5e06c.png>
