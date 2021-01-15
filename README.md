@@ -6,10 +6,10 @@
 </p>
 
  - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) (e.g If todays the 1 FEB 2021 it will post all public repos from JAN 2021).
- > The report contains the following:
-      > * Name of project
-      > * Description of project
-      > * Link to project repository
+ - The report contains the following:
+      - Name of project
+      - Description of project
+      - Link to project repository
  - Additional functionality:
      - [x] Send me a email report copy of successfully creating at least one public repository for previous month
      - [x] Emails me if I haven't at least created one project for the previous month with a current list of public repos for the year.
