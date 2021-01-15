@@ -1,4 +1,4 @@
-> Please start project if you find it useful :)
+> Please star project if you find it useful :)
 # LinkedIn_automation
 <p align="center">
 <img height=200 src=https://user-images.githubusercontent.com/50704452/104107731-54d2c200-52c7-11eb-8b5a-b98d9c32ae6a.jpeg>
@@ -44,7 +44,7 @@ def create_dataframe(response):
 def display_repos(df):
 ```
  - `def display_repos()` function is tasked to:
-   - Sorting the dataframe in ascending order according to json key "Create_at"(i.e list newest public repository at the top of dataframe)
+   - Sorting the dataframe in ascending order according to json key "Created_at"(i.e list newest public repository at the top of dataframe)
    - Retrieves the current date then return the previous offset month value(e.g Todays the 1 FEB 2021 it will return 1 JAN 2021)
    - Find any repo that was created from the previous months(e.g Find all repos in JAN)
 
@@ -77,7 +77,7 @@ to send an email to myself.
    def linkedin_request(send_textfile):
 ```
 
-- Lastely , `linkedin_request()` function sends a request to share a post on my LinkedIn profile using my `linkedin_access_token` and `id_urn`
+- Lastely , `linkedin_request()` function sends a request to share a post on my LinkedIn profile using my `linkedin_access_token` and `id_urn`.
 
  # Installation
  ### Create a Github Personal access token
