@@ -30,7 +30,34 @@
  - [Troubleshoot](#troubleshoot)
 
  # How it works
- (using it github actions)
+ - (using it github actions)
+      - The `github_request()` function makes a GET request from Github API for the details of my repository and returns its response object
+ ```python
+ def github_request():
+   headers = {'Authorization': 'token ' + config('api')}
+   response = requests.get('https://api.github.com/users/Nkosinathi-Bonga-James-Mncube/repos',headers=headers)
+```
+- `create_dataframe()` then convert the response object into json object. To use the data effectively I converted the data into list( excluding any repos that are forked) to created a dataframe. 
+```python
+def create_dataframe(response):
+   project_name = [k['name'] for k in response.json() if not k['fork'] == True]
+   project_created = [k['created_at'] for k in response.json() if not k['fork'] == True]
+   project_description = [k['description'] for k in response.json() if not k['fork'] == True]
+   project_url = [k['html_url'] for k in response.json() if not k['fork'] == True]
+```
+ - `def display_repos()` function
+```python
+   df.sort_values(by=['Created_at'],inplace=True,ascending=False)
+```
+```python
+   x=datetime.datetime.now()+ pd.DateOffset(months=-1)
+```
+```python
+   each_repo = df.loc[df['Created_at'].dt.month==x.month].values
+```
+```python
+   f=open("report.txt","w")
+```
  - An email is send using `send email` action if no new repo repro has added for the month.
  ## What is Github Actions?
  - Explain artifacts
@@ -56,25 +83,25 @@
  > Please note: It's advise to use your own personal Linkedin profile as there are restrictions on newly created accounts.Please refer to the Troubleshoot section.  
  - https://www.linkedin.com/developers/
   ### Enter email details
+   > NB : If you plan to use your gmail account please use a app password instead of default password. To create app password :
+   - https://support.google.com/accounts/answer/185833?hl=en
+
  - To enter secrets details for email click on settings
  <p>
 <img width= 500 src=https://user-images.githubusercontent.com/50704452/104120644-07933680-5341-11eb-8072-a5f0faa38a42.png>
 </p>
 
-<<<<<<< HEAD
-   > NB : If you plan to use your gmail account please use a app password instead of default password. To create app password :
-
-    - https://support.google.com/accounts/answer/185833?hl=en
 
 
- - In the left sidebar, click Secrets.Add the `MAIL_USERNAME`(enter email address), `MAIL_PASSWORD`(enter password) , `SEND_TO`(recieving email address),`SEND_FROM`(different email address it sending from) values
-=======
+
  - In the left sidebar, click Secrets.Add the following secrets :
-  - `MAIL_USERNAME`(enter email address)
-  - `MAIL_PASSWORD`(enter password)
-  - `SEND_TO`(recieving email address)
-  - `SEND_FROM`(different email address it sending from)
->>>>>>> 3f0df09e5924ce2a4077a8423d49f0b3c4cf75ee
+      - `MAIL_USERNAME` (enter email address)
+      - `MAIL_PASSWORD` (enter password)
+      - `SEND_TO` (recieving email address)
+      - `SEND_FROM` (different email address it sending from)
+      - `GITHUB_ACCESS_TOKEN` (Github personal access token)
+      - `LINKEDIN_ACCESS_TOKEN` (Linkedin access token)
+      - `LINKEDIN_ID_URN` (Linkedin URN id)
 
 <p>
 <img width= 500 src=https://user-images.githubusercontent.com/50704452/104120647-1974d980-5341-11eb-9a63-1b2bfb32f7bb.png>
