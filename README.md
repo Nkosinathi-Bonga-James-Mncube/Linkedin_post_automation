@@ -78,6 +78,7 @@ to send an email to myself.
 ```
 
 - Lastely , `linkedin_request()` function sends a request to share a post on my LinkedIn profile using my `linkedin_access_token` and `id_urn`.
+<img height=400 width=400 src=https://user-images.githubusercontent.com/50704452/104778499-1a18d000-5786-11eb-9eb5-f2518fe13286.png>
 
  # Installation
  ### Create a Github Personal access token
@@ -100,8 +101,8 @@ to send an email to myself.
  - In the left sidebar, click Secrets.Add the following secrets :
       - `MAIL_USERNAME` (enter email address)
       - `MAIL_PASSWORD` (enter password)
-      - `SEND_TO` (recieving email address)
-      - `SEND_FROM` (different email address it sending from)
+      - `SEND_TO` (enter email address)
+      - `SEND_FROM` (enter email address i.e sending it to myself)
       - `GITHUB_ACCESS_TOKEN` (Github personal access token)
       - `LINKEDIN_ACCESS_TOKEN` (Linkedin access token)
       - `LINKEDIN_ID_URN` (Linkedin URN id)
