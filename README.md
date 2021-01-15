@@ -6,10 +6,10 @@
 </p>
 
  - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) (e.g If todays the 1 FEB 2021 it will post all public repos from JAN 2021).
- - The report contains the following:
-      - Name of project
-      - Description of project
-      - Link to project repository
+ > The report contains the following:
+      > * Name of project
+      > * Description of project
+      > * Link to project repository
  - Additional functionality:
      - [x] Send me a email report copy of successfully creating at least one public repository for previous month
      - [x] Emails me if I haven't at least created one project for the previous month with a current list of public repos for the year.
@@ -34,30 +34,26 @@
   ```python
  def github_request():
 ```
-- The `github_request()` function makes a GET request from Github API for the details of my repository and returns its response object.
+- `github_request()` function makes a GET request from Github API for the details of my repository and returns its response object.
 ```python
 def create_dataframe(response):
 ```
 - `create_dataframe()` then convert the response object into json object. To use the data effectively I converted the data into lists from json values( excluding any repos that are forked) to created a dataframe. 
 
-
-
+```python
+def display_repos(df):
+```
  - `def display_repos()` function is tasked to:
- - Sorting the dataframe in ascending order according to json key "Create_at"(i.e list newest public repository at the top of dataframe)
-```python
-   df.sort_values(by=['Created_at'],inplace=True,ascending=False)
-```
-   - Retrieves the current date then return the previous month value. (e.g Todays the 1 FEB 2021 it will return 1 JAN 2021)
-```python
-   x=datetime.datetime.now()+ pd.DateOffset(months=-1)
-```
-- The `df.loc` attribute is used to find any repo that was created from the previous months. Then using `.values` to return numpy array . (i.e. Find all repos in JAN)
-```python
-   each_repo = df.loc[df['Created_at'].dt.month==x.month].values
-```
+   - Sorting the dataframe in ascending order according to json key "Create_at"(i.e list newest public repository at the top of dataframe)
+   - Retrieves the current date then return the previous offset month value(e.g Todays the 1 FEB 2021 it will return 1 JAN 2021)
+   - Find any repo that was created from the previous months(e.g Find all repos in JAN)
+
 ## On failure (i.e No new repositories have been created for the month)
 - If `each_repo.size` is 0 that means no public repository have been created for that specific month and `fail_msg()` function is called.
-- Creates a numpy array of the current years repositories instead of month for `each_repo`
+```python
+def fail_msg(df,x):
+```
+- Creates a numpy array of the current years repositories in `each_repo`
 ```python
  each_repo = df.loc[df['Created_at'].dt.year==y.year].values
 ```
@@ -66,20 +62,22 @@ def create_dataframe(response):
 <img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768621-a7542880-5776-11eb-8fdc-47b14992fc46.png>
 
 ## On Success (i.e At least one repository has been created for the month)
-- If `each_repo.size` is greater than 0 for that specific month the `display_repos()` 
-function is called.
+- If `each_repo.size` is greater than 0 then: 
+
+- Creates a numpy array of the current months repositories in `each_repo`
 ```python
-def display_repos(df):
+each_repo = df.loc[df['Created_at'].dt.month==x.month].values
 ```
 - Afterwards all infomation(Personal message,Current months repos etc.) is written into `report.txt` to be used by `send_email()`
 to be sent in email to myself.
+
 <img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768706-c2269d00-5776-11eb-8bb9-a4481be5e06c.png>
 
 ```python
    def linkedin_request(send_textfile):
 ```
 
-- Lastely , `linkedin_request()` function is used to share a post on my LinkedIn profile using my `linkedin_access_token` and `id_urn`
+- Lastely , `linkedin_request()` function sends a request to share a post on my LinkedIn profile using my `linkedin_access_token` and `id_urn`
    > `linkedin_access_token` :
 
    >`id_urn` : Uniqu
