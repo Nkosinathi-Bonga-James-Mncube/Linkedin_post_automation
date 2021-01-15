@@ -1,7 +1,7 @@
 name: LinkedIn post automation
-on: push
-  #schedule:
-  #  - cron: '*/2 * * * *'
+on: 
+  schedule:
+   - cron: '* * * * *'
 jobs:
   build:
     name: Run python script + send email
