@@ -53,6 +53,11 @@
 <img width= 500 src=https://user-images.githubusercontent.com/50704452/104120644-07933680-5341-11eb-8072-a5f0faa38a42.png>
 </p>
 
+   > NB : If you plan to use your gmail account please use a app password instead of default password. To create app password :
+
+    - https://support.google.com/accounts/answer/185833?hl=en
+
+
  - In the left sidebar, click Secrets.Add the `MAIL_USERNAME`(enter email address), `MAIL_PASSWORD`(enter password) , `SEND_TO`(recieving email address),`SEND_FROM`(different email address it sending from) values
 
 <p>
