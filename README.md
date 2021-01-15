@@ -57,7 +57,7 @@ def fail_msg(df,x):
 ```python
  each_repo = df.loc[df['Created_at'].dt.year==y.year].values
 ```
-- Afterwards all infomation(Personal message,Current year repos etc.) is written into `fail.txt` to be used by `send_email()` to be sent in email to myself.
+- Afterwards all infomation(Personal message,Current year repos etc.) is written into `fail.txt` to be used by `send_email()` to send an email to myself.
 
 <img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768621-a7542880-5776-11eb-8fdc-47b14992fc46.png>
 
@@ -69,7 +69,7 @@ def fail_msg(df,x):
 each_repo = df.loc[df['Created_at'].dt.month==x.month].values
 ```
 - Afterwards all infomation(Personal message,Current months repos etc.) is written into `report.txt` to be used by `send_email()`
-to be sent in email to myself.
+to send an email to myself.
 
 <img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768706-c2269d00-5776-11eb-8bb9-a4481be5e06c.png>
 
@@ -78,15 +78,6 @@ to be sent in email to myself.
 ```
 
 - Lastely , `linkedin_request()` function sends a request to share a post on my LinkedIn profile using my `linkedin_access_token` and `id_urn`
-   > `linkedin_access_token` :
-
-   >`id_urn` : Uniqu
-
-
-
-
- 
-- `linkedin_request()`
 
  # Installation
  ### Create a Github Personal access token
