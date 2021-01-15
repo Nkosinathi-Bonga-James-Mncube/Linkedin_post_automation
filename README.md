@@ -5,8 +5,7 @@
 <img height=200 width=400 src=https://user-images.githubusercontent.com/50704452/104107772-b430d200-52c7-11eb-992b-61265adf89b1.png>
 </p>
 
- - Built a automated task to inform my network what I'm working on LinkedIn.
- - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) of my finished public projects.The report will display compeleted project for the previous month(e.g If todays the 1 FEB 2021 it will post all public repos from JAN 2021).
+ - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) (e.g If todays the 1 FEB 2021 it will post all public repos from JAN 2021).
  - The report contains the following:
       - Name of project
       - Description of project
@@ -32,20 +31,17 @@
  - [Troubleshoot](#troubleshoot)
 
  # How it works
-- The `github_request()` function makes a GET request from Github API for the details of my repository and returns its response object.
- ```python
+  ```python
  def github_request():
-   headers = {'Authorization': 'token ' + config('api')}
-   response = requests.get('https://api.github.com/users/Nkosinathi-Bonga-James-Mncube/repos',headers=headers)
 ```
-- `create_dataframe()` then convert the response object into json object. To use the data effectively I converted the data into lists from json values( excluding any repos that are forked) to created a dataframe. 
+- The `github_request()` function makes a GET request from Github API for the details of my repository and returns its response object.
 ```python
 def create_dataframe(response):
-   project_name = [k['name'] for k in response.json() if not k['fork'] == True]
-   project_created = [k['created_at'] for k in response.json() if not k['fork'] == True]
-   project_description = [k['description'] for k in response.json() if not k['fork'] == True]
-   project_url = [k['html_url'] for k in response.json() if not k['fork'] == True]
 ```
+- `create_dataframe()` then convert the response object into json object. To use the data effectively I converted the data into lists from json values( excluding any repos that are forked) to created a dataframe. 
+
+
+
  - `def display_repos()` function is tasked to:
  - Sorting the dataframe in ascending order according to json key "Create_at"(i.e list newest public repository at the top of dataframe)
 ```python
