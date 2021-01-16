@@ -46,31 +46,29 @@ def create_dataframe(response):
 def display_repos(df):
 ```
  - `def display_repos()` function is tasked to:
-   - Sorting the dataframe in ascending order according to json key "Created_at"(i.e list newest public repository at the top of dataframe)
+   - Sorting the dataframe in ascending order according using json key "Created_at"(i.e list newest public repository at the top of dataframe)
    - Retrieves the current date then return the previous offset month value(e.g Todays the 1 FEB 2021 it will return 1 JAN 2021)
    - Find any repo that was created from the previous months(e.g Find all repos in JAN)
 
 ## On failure (i.e No new repositories have been created for the month)
+```python
+ each_repo = df.loc[df['Created_at'].dt.year==y.year].values
+```
 - If `each_repo.size` is 0 that means no public repository have been created for that specific month and `fail_msg()` function is called.
 ```python
 def fail_msg(df,x):
 ```
-- Creates a numpy array of the current years repositories in `each_repo`
-```python
- each_repo = df.loc[df['Created_at'].dt.year==y.year].values
-```
-- Afterwards all infomation(Personal message,Current year repos etc.) is written into `fail.txt` to be used by `send_email()` to send an email to myself.
+- `fail_msg()` sends all infomation(personal message,current year repos etc.) to written into `fail.txt` to be used by `send_email()` to send an email to myself.
 
 <img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768621-a7542880-5776-11eb-8fdc-47b14992fc46.png>
 
 ## On Success (i.e At least one repository has been created for the month)
-- If `each_repo.size` is greater than 0 then: 
-
-- Creates a numpy array of the current months repositories in `each_repo`
 ```python
 each_repo = df.loc[df['Created_at'].dt.month==x.month].values
 ```
-- Afterwards all infomation(personal message,current months repos etc.) is written into `report.txt` to be used by `send_email()`
+- If `each_repo.size` is greater than 0 then: 
+
+- All infomation(personal message,current months repos etc.) is written into `report.txt` to be used by `send_email()`
 to send an email to myself.
 
 <img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768706-c2269d00-5776-11eb-8bb9-a4481be5e06c.png>
@@ -80,6 +78,7 @@ to send an email to myself.
 ```
 
 - Lastely , `linkedin_request()` function sends a request to share a post on my LinkedIn profile using my `linkedin_access_token` and `id_urn`.
+
 <img height=400 width=400 src=https://user-images.githubusercontent.com/50704452/104778499-1a18d000-5786-11eb-9eb5-f2518fe13286.png>
 
  # Installation
@@ -136,9 +135,16 @@ jobs:
 
        
      - name : Run LinkedIn script
+       env:
+              SEND_TO: ${{secrets.SEND_TO}}
+              SEND_FROM: ${{secrets.SEND_FROM}}
+              MAIL_PASSWORD: ${{secrets.MAIL_PASSWORD}}
+              API: ${{secrets.API}}
+              LINKEDIN_ACCESS_TOKEN: ${{secrets.LINKEDIN_ACCESS_TOKEN}}
+              LINKEDIN_ID_URN: ${{secrets.LINKEDIN_ID_URN}}
        run: |
           pip install -r requirements.txt
-          python src/main.py  ${{secrets.SEND_TO}} ${{secrets.SEND_FROM}} ${{secrets.MAIL_PASSWORD}} ${{secrets.API}} ${{secrets.LINKEDIN_ACCESS_TOKEN}} ${{secrets.LINKEDIN_ID_URN}}
+          python src/main.py  $SEND_TO $SEND_FROM $MAIL_PASSWORD $API $LINKEDIN_ACCESS_TOKEN $LINKEDIN_ID_URN
  ```
  # Troubleshoot
   > You experience any issue with sending a email try:
