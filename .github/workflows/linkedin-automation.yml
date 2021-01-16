@@ -20,5 +20,5 @@ jobs:
      - name : Run LinkedIn script
        run: |
           pip install -r requirements.txt
-          python main.py  ${{secret.SEND_TO}} ${{secret.SEND_FROM}} ${{secret.MAIL_PASSWORD}} ${{secret.API}} ${{secret.LINKEDIN_ACCESS_TOKEN}} ${{secret.LINKEDIN_ID_URN}}
+          python main.py  ${{secrets.SEND_TO}} ${{secrets.SEND_FROM}} ${{secrets.MAIL_PASSWORD}} ${{secrets.API}} ${{secrets.LINKEDIN_ACCESS_TOKEN}} ${{secrets.LINKEDIN_ID_URN}}
 #username: ${{secrets.MAIL_USERNAME}}
