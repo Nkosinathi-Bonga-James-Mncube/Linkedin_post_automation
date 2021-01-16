@@ -15,8 +15,6 @@ import time
 # LINKEDIN_ID_URN = sys.argv[6]
 
 def github_request():
-    for x in sys.argv[1:]: # for arguments for secrets
-
     # Make api request with Github credential token
     headers = {'Authorization': 'token ' + sys.argv[4]}
     response = requests.get('https://api.github.com/users/Nkosinathi-Bonga-James-Mncube/repos',headers=headers)
