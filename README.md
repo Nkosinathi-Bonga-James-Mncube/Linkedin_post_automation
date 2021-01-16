@@ -7,13 +7,13 @@
 <img height=200 width=400 src=https://user-images.githubusercontent.com/50704452/104107772-b430d200-52c7-11eb-992b-61265adf89b1.png>
 </p>
 
- - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) (e.g If todays the 1 FEB 2021 it will post all public repos from JAN 2021).
+ - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) (e.g If todays the 1 FEB 2021 it will post all public repos created in JAN 2021).
  - The report contains the following:
       - Name of project
       - Description of project
       - Link to project repository
  - Additional functionality:
-     - [x] Send me a email report copy of successfully creating at least one public repository for previous month
+     - [x] Sends me a email report when I successfully create at least one public repository in the previous month.
      - [x] Emails me if I haven't at least created one project for the previous month with a current list of public repos for the year.
 
  
@@ -23,7 +23,7 @@
 - Request: https://pypi.org/project/requests/
 
 # Actions used
- - Send email : https://github.com/marketplace/actions/send-email
+
  - GitHub Script: https://github.com/marketplace/actions/github-script
 ----
 # Table of contents
@@ -70,7 +70,7 @@ def fail_msg(df,x):
 ```python
 each_repo = df.loc[df['Created_at'].dt.month==x.month].values
 ```
-- Afterwards all infomation(Personal message,Current months repos etc.) is written into `report.txt` to be used by `send_email()`
+- Afterwards all infomation(personal message,current months repos etc.) is written into `report.txt` to be used by `send_email()`
 to send an email to myself.
 
 <img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768706-c2269d00-5776-11eb-8bb9-a4481be5e06c.png>
@@ -114,6 +114,32 @@ to send an email to myself.
 
 
  # How to use github actions
+ - Script should automatically run on the 1st of each month set by `cron`. `Checkout` action was used for testing purposes (testing on push event).
+ ```yaml
+ name: LinkedIn post automation
+
+on: 
+  schedule:
+    - cron: "0 0 1 * *"
+      
+jobs:
+  ActionSteps:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout repo
+       uses: actions/checkout@v2
+       
+     - name: Setup python
+       uses: actions/setup-python@v2
+       with:
+          python-version: 3.8
+
+       
+     - name : Run LinkedIn script
+       run: |
+          pip install -r requirements.txt
+          python src/main.py  ${{secrets.SEND_TO}} ${{secrets.SEND_FROM}} ${{secrets.MAIL_PASSWORD}} ${{secrets.API}} ${{secrets.LINKEDIN_ACCESS_TOKEN}} ${{secrets.LINKEDIN_ID_URN}}
+ ```
  # Troubleshoot
   > You experience any issue with sending a email try:
   - https://support.google.com/mail/answer/7126229?visit_id=637458707776330290-1687276339&rd=2#cantsignin

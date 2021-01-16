@@ -26,7 +26,7 @@ def create_dataframe(response):
     project_description = [k['description'] for k in response.json() if not k['fork'] == True]
     project_url = [k['html_url'] for k in response.json() if not k['fork'] == True]
     
-    # Create a dictionary from json values 
+    # Create a dataframe
     data_df = {
                 'Project_name':project_name,
                 'Created_at':project_created,
