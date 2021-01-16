@@ -99,11 +99,10 @@ to send an email to myself.
 
 
  - In the left sidebar, click Secrets.Add the following secrets :
-      - `MAIL_USERNAME` (enter email address)
-      - `MAIL_PASSWORD` (enter password)
       - `SEND_TO` (enter email address)
       - `SEND_FROM` (enter email address i.e sending it to myself)
-      - `GITHUB_ACCESS_TOKEN` (Github personal access token)
+      - `MAIL_PASSWORD` (enter password)
+      - `API` (Github personal access token)
       - `LINKEDIN_ACCESS_TOKEN` (Linkedin access token)
       - `LINKEDIN_ID_URN` (Linkedin URN id)
 
