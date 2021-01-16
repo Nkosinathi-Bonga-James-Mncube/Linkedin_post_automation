@@ -1,0 +1,23 @@
+name: LinkedIn post automation
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+      
+jobs:
+  logLatestRelease:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout repo
+       uses: actions/checkout@v2
+       
+     - name: Setup python
+       uses: actions/setup-python@v2
+       with:
+          python-version: 3.8
+
+       
+     - name : Run LinkedIn script
+       run: |
+          python main.py  ${{secret.SEND_TO}} ${{secret.SEND_FROM}} ${{secret.MAIL_PASSWORD}} ${{secret.API}} ${{secret.LINKEDIN_ACCESS_TOKEN}} ${{secret.LINKEDIN_ID_URN}}
+#username: ${{secrets.MAIL_USERNAME}}
