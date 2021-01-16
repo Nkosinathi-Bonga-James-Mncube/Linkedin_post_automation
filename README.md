@@ -1,3 +1,5 @@
+> Please note: The script is for learning purposes and not for any malicious intent
+
 > Please star project if you find it useful :)
 # LinkedIn_automation
 <p align="center">
