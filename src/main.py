@@ -1,5 +1,4 @@
 import  datetime
-from    decouple import config # NB remove + config(api) will be replaced with github secrets
 import  pandas as pd
 from    pandas.tseries.offsets import DateOffset
 import  pprint
@@ -8,11 +7,18 @@ import  smtplib, ssl
 import  sys
 import time
 
+# SEND_TO = sys.argv[1]
+# SEND_FROM = sys.argv[2]
+# MAIL_PASSWORD = sys.argv[3]
+# API = sys.argv[4]
+# LINKEDIN_ACCESS_TOKEN =sys.argv[5]
+# LINKEDIN_ID_URN = sys.argv[6]
+
 def github_request():
     for x in sys.argv[1:]: # for arguments for secrets
-      print(x)  
+
     # Make api request with Github credential token
-    headers = {'Authorization': 'token ' + config('api')}
+    headers = {'Authorization': 'token ' + sys.argv[4]}
     response = requests.get('https://api.github.com/users/Nkosinathi-Bonga-James-Mncube/repos',headers=headers)
     create_dataframe(response)
     
@@ -81,8 +87,8 @@ def display_repos(df):
       f.close()
 
 def linkedin_request(send_textfile):
-    linkedin_access_token=config('linkedin_access_token')
-    id_urn=config('linkedin_id_urn')
+    linkedin_access_token=sys.argv[5]
+    id_urn=sys.argv[6]
     data = {
         "author": f'urn:li:person:{id_urn}',
         "lifecycleState": "PUBLISHED",
@@ -118,8 +124,8 @@ def send_email(send_textfile): #sends email to myself
 
       server.ehlo()
       server.starttls(context=context)
-      server.login(config('sender_email'), config('password'))
-      server.sendmail(config('sender_email'), config('receiver_email'), message)
+      server.login(sys.argv[1], sys.argv[3])
+      server.sendmail(sys.argv[1], sys.argv[2], message)
       print('-> Email sent')
   except Exception as e:
     print('Error:',e)
