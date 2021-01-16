@@ -60,8 +60,8 @@ def display_repos(df):
     df.sort_values(by=['Created_at'],inplace=True,ascending=False)
     df['Created_at']= pd.to_datetime(df['Created_at']) # convert to Date.time.object
     # print(df) # debug
-    x=datetime.datetime.now()+ pd.DateOffset(months=-1) # check previous month (i.e -1)
-    # x=datetime.date.fromisoformat('2021-04-01')+ pd.DateOffset(months=-1) # debug
+    # x=datetime.datetime.now()+ pd.DateOffset(months=-1) # check previous month (i.e -1)
+      x=datetime.date.fromisoformat('2021-04-01')+ pd.DateOffset(months=-1) # debug
     each_repo = df.loc[df['Created_at'].dt.month==x.month].values # find all dates with the previous month in series Created_at
     if each_repo.size == 0:  
       fail_msg(df,x)
