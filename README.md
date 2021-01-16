@@ -52,7 +52,7 @@ def display_repos(df):
 
 ## On failure (i.e No new repositories have been created for the month)
 ```python
- each_repo = df.loc[df['Created_at'].dt.year==y.year].values
+ each_repo = df.loc[df['Created_at'].dt.month==x.month].values
 ```
 - If `each_repo.size` is 0 that means no public repository have been created for that specific month and `fail_msg()` function is called.
 ```python
