@@ -56,8 +56,8 @@ def fail_msg(df,x):
 def display_repos(df): 
     df.sort_values(by=['Created_at'],inplace=True,ascending=False)
     df['Created_at']= pd.to_datetime(df['Created_at']) 
-    x=datetime.datetime.now()+ pd.DateOffset(months=-1) # check previous month (i.e -1)
-    # x=datetime.date.fromisoformat('2021-04-01')+ pd.DateOffset(months=-1) # for debug
+    # x=datetime.datetime.now()+ pd.DateOffset(months=-1) # check previous month (i.e -1)
+    x=datetime.date.fromisoformat('2021-04-01')+ pd.DateOffset(months=-1) # for debug
     each_repo = df.loc[df['Created_at'].dt.month==x.month].values # find all dates with the previous month
     if each_repo.size == 0:  
       fail_msg(df,x) # When no new repositories have been created for the month
