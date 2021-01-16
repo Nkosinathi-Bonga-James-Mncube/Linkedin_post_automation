@@ -1,8 +1,8 @@
 name: LinkedIn post automation
 
-on: 
-  schedule:
-    - cron: "0 0 1 * *"
+on: [push]
+  # schedule:
+    # - cron: "0 0 1 * *"
       
 jobs:
   ActionSteps:
@@ -18,6 +18,13 @@ jobs:
 
        
      - name : Run LinkedIn script
+       env:
+              SEND_TO: ${{secrets.SEND_TO}}
+              SEND_FROM: ${{secrets.SEND_FROM}}
+              MAIL_PASSWORD: ${{secrets.MAIL_PASSWORD}}
+              API: ${{secrets.API}}
+              LINKEDIN_ACCESS_TOKEN: ${{secrets.LINKEDIN_ACCESS_TOKEN}}
+              LINKEDIN_ID_URN: ${{secrets.LINKEDIN_ID_URN}}
        run: |
           pip install -r requirements.txt
-          python src/main.py  ${{secrets.SEND_TO}} ${{secrets.SEND_FROM}} ${{secrets.MAIL_PASSWORD}} ${{secrets.API}} ${{secrets.LINKEDIN_ACCESS_TOKEN}} ${{secrets.LINKEDIN_ID_URN}}
+          python src/main.py  $SEND_TO $SEND_FROM $MAIL_PASSWORD $API $LINKEDIN_ACCESS_TOKEN $LINKEDIN_ID_URN
