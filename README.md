@@ -7,7 +7,7 @@
 <img height=200 width=400 src=https://user-images.githubusercontent.com/50704452/104107772-b430d200-52c7-11eb-992b-61265adf89b1.png>
 </p>
 
- - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) (e.g If todays the 1 FEB 2021 it will post all public repos created in JAN 2021).
+ - Posts a automated report each 1st of the month to my [LinkedIn Profile](https://www.linkedin.com/in/nbj-mncube/) using [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) (e.g If todays the 1 JAN 2021 it will post all public repos created in DEC 2020).
  - The report contains the following:
       - Name of project
       - Description of project
@@ -47,8 +47,8 @@ def display_repos(df):
 ```
  - `def display_repos()` function is tasked to:
    - Sorting the dataframe in ascending order according using json key "Created_at"(i.e list newest public repository at the top of dataframe)
-   - Retrieves the current date then return the previous offset month value(e.g Todays the 1 FEB 2021 it will return 1 JAN 2021)
-   - Find any repo that was created from the previous months(e.g Find all repos in JAN)
+   - Retrieves the current date then return the previous offset month value(e.g If todays the 1 JAN 2021 it will return 1 DEC 2020)
+   - Find any repo that was created from the previous months(e.g Find all repos in DEC)
 
 ## On failure (i.e No new repositories have been created for the month)
 ```python
@@ -58,9 +58,9 @@ def display_repos(df):
 ```python
 def fail_msg(df,x):
 ```
-- `fail_msg()` sends all infomation(personal message,current year repos etc.) to written into `fail.txt` to be used by `send_email()` to send an email to myself.
+- `fail_msg()` sends all infomation(personal message,current year repos etc.) to be written into `fail.txt` to be used by `send_email()` to send an email to myself.
 
-<img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768621-a7542880-5776-11eb-8fdc-47b14992fc46.png>
+<img height=400 width=600 src=https://user-images.githubusercontent.com/50704452/104844489-2f524380-58d9-11eb-929c-440088605977.png>
 
 ## On Success (i.e At least one repository has been created for the month)
 ```python
@@ -71,7 +71,8 @@ each_repo = df.loc[df['Created_at'].dt.month==x.month].values
 - All infomation(personal message,current months repos etc.) is written into `report.txt` to be used by `send_email()`
 to send an email to myself.
 
-<img height=400 width=800 src=https://user-images.githubusercontent.com/50704452/104768706-c2269d00-5776-11eb-8bb9-a4481be5e06c.png>
+
+<img height=400 width=600 src=https://user-images.githubusercontent.com/50704452/104844632-1007e600-58da-11eb-80ab-d9c5cf797858.png>
 
 ```python
    def linkedin_request(send_textfile):
@@ -147,7 +148,10 @@ jobs:
           python src/main.py  $SEND_TO $SEND_FROM $MAIL_PASSWORD $API $LINKEDIN_ACCESS_TOKEN $LINKEDIN_ID_URN
  ```
  # Troubleshoot
+  ## Gmail
   > You experience any issue with sending a email try:
   - https://support.google.com/mail/answer/7126229?visit_id=637458707776330290-1687276339&rd=2#cantsignin
+  
+  ## LinkedIn
   > If you are having trouble creating a Linkedin company page to get a access token please read
   - https://technoogies.com/how-to-facts-about-linkedin-an-error-has-occurred-please-try-again-later/
