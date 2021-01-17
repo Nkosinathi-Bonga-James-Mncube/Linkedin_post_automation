@@ -123,7 +123,7 @@ on:
     - cron: "0 0 1 * *"
       
 jobs:
-  ActionSteps:
+  LinkedInActions:
     runs-on: ubuntu-latest
     steps:
      - name: Checkout repo
