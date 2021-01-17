@@ -1,11 +1,11 @@
 name: LinkedIn post automation
 
-on: [push]
-  # schedule:
-    # - cron: "0 0 1 * *"
+on: 
+  schedule:
+    - cron: "0 0 1 * *"
       
 jobs:
-  ActionSteps:
+  LinkedInActions:
     runs-on: ubuntu-latest
     steps:
      - name: Checkout repo
