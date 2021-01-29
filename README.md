@@ -88,7 +88,7 @@ to send an email to myself.
  ### Create a Linkedin token (Click on 'Create a app')
  > Please note: It's advise to use your own personal Linkedin profile as there are restrictions on newly created accounts.Please refer to the Troubleshoot section.  
  - https://www.linkedin.com/developers/
-  ### Enter email details
+  ### Enter secrets
    > NB : If you plan to use your gmail account please use a app password instead of default password. To create app password :
    - https://support.google.com/accounts/answer/185833?hl=en
 
