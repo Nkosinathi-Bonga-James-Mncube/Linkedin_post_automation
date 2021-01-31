@@ -29,7 +29,7 @@
 # Table of contents
  - [How it works](#how-it-works)
  - [Installation](#installation)
- - [How to use github action](#how-to-use-github-actions)
+ - [Github action yaml](#github-action-yaml)
  - [Troubleshoot](#troubleshoot)
 
  # How it works
@@ -113,7 +113,7 @@ to send an email to myself.
 </p>
 
 
- # How to use github actions
+ # Github action yaml
  - Script should automatically run on the 1st of each month set by `cron`. `Checkout` action was used for testing purposes (testing on push event).
  ```yaml
  name: LinkedIn post automation
